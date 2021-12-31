@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
-import Property from "../components/Property"
+import Property from "../components/Property";
 
 // Banner component
 const Banner = ({
@@ -44,13 +44,12 @@ const Banner = ({
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
     <div>
-      <h1>Hello world</h1>
       <Box>
         {/* First Banner */}
         <Banner
-          purpose="RENTE UNA CASA"
-          title1="Casas en renta para"
-          title2="todo el mundo"
+          purpose="RENT A HOME"
+          title1="Home in rent for"
+          title2="everyone"
           desc1="Explore apartamentos, villas, casas"
           desc2="y más"
           buttonText="Explorar rentas"
@@ -58,7 +57,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
         />
 
-        <Flex flexWrap="wrap">
+        <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
           {/* fetch the properties and map over them... */}
           {propertiesForRent.map((property) => (
             <Property property={property} key={property.id} />
@@ -67,19 +66,21 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 
         {/* Second Banner  */}
         <Banner
-          purpose="COMPRE UNA CASA"
-          title1="Encuentre y compre la casa"
-          title2="de sus sueños"
-          desc1="Explore apartamentos, villas, casas"
-          desc2="y más"
+          purpose="BUY A HOME"
+          title1="Find, Buy & Own Your"
+          title2="Dream Home"
+          desc1="Explore Apartments, Villas, Homes"
+          desc2="and more."
           buttonText="Explorar compras"
           linkName="/search?purpose=for-sale"
           imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008"
         />
         {/* fetch the properties and map over them... */}
-        {propertiesForSale.map((property) => (
-          <Property property={property} key={property.id} />
-        ))}
+        <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+          {propertiesForSale.map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
+        </Flex>
       </Box>
     </div>
   );

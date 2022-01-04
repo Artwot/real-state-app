@@ -8,7 +8,7 @@ const Footer = () => {
       color="gray.600"
       borderTop="1px"
       borderColor="gray.100"
-      backgroundColor="tomato"
+      backgroundColor="lightgray"
     >
       2021 Realtor, Inc.
     </Box>

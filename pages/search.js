@@ -26,7 +26,7 @@ const Search = ({ properties }) => {
         justifyContent="center"
         alignItems="center"
         onClick={() => {
-          setSearchFilters((prevFilters) => !prevFilters);
+          setSearchFilters(!searchFilters);
         }}
       >
         <Text>Search Property By Filters</Text>
@@ -61,6 +61,7 @@ export default Search;
 
 // Fetch the data
 export async function getServerSideProps({ query }) {
+  // The constants take the query's value or a default value for fetch the data
   const purpose = query.purpose || "for-rent";
   const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || "0";
